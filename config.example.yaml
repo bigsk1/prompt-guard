@@ -1,0 +1,34 @@
+# Optional file. Point PROMPT_GUARD_CONFIG at it.
+# Environment variables win over this file.
+
+model_id: Horizon-Labs/prompt-injection-guard-base
+model_revision: f95005bbceac345aafec1620719857c6202eabd5
+model_cache_dir: /models
+
+# CPU image: runtime onnx, device cpu, onnx_variant quantized or fp32.
+# GPU image: runtime pytorch, device cuda, dtype float16 or float32.
+runtime: onnx
+device: cpu
+onnx_variant: quantized
+dtype: float32
+
+# window_size includes special tokens and must be <= the model context (8192).
+# overlap is the number of shared content tokens between windows.
+window_size: 2048
+window_overlap: 512
+window_batch_size: 4
+
+max_windows: 32
+max_input_tokens: 32768
+max_request_bytes: 1048576
+deadline_ms: 30000
+default_threshold: 0.5
+queue_size: 8
+retry_after_seconds: 1
+
+# 0 leaves ONNX Runtime's own thread default in place.
+onnx_intra_op_threads: 0
+
+host: 0.0.0.0
+port: 8080
+log_level: info

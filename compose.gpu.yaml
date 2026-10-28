@@ -1,0 +1,24 @@
+# GPU override for an RTX 5060 Ti 16 GB, or another CUDA 12.8 GPU.
+# The host needs the NVIDIA driver with CUDA 12.8+ support (570 series or newer
+# for the 5060 Ti) and the NVIDIA Container Toolkit.
+#
+#   docker compose -f compose.yaml -f compose.gpu.yaml up --build -d
+
+services:
+  prompt-guard:
+    build:
+      context: .
+      target: gpu
+    image: prompt-guard:gpu
+    environment:
+      PROMPT_GUARD_RUNTIME: pytorch
+      PROMPT_GUARD_DEVICE: cuda
+      PROMPT_GUARD_DTYPE: float16
+    shm_size: 2gb
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
