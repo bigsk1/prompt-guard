@@ -42,6 +42,7 @@ The current pin is `f95005bbceac345aafec1620719857c6202eabd5` (model card v2.2, 
 
 - `trust_remote_code` stays false. Never download or import `*.py` from the model repo. The tokenizer's bundled normalizer lives in `tokenizer.json` and must be the one that runs.
 - Do not log, store, or echo submitted text, `source`, thresholds paired with text, or the API key. `repr(Settings)` hides the key.
+- `return_windows` is opt-in and must reuse the scores from the same inference pass. Character offsets come from the tokenizer. Do not recover them by decoding tokens and searching, and do not log window text.
 - Do not fetch URLs, open caller paths, or shell out during a scan.
 - Do not add a batch route, chat route, policy route, or job queue. Version 1 is one text in, one result or an error.
 - A successful body has `status: ok`, `coverage.complete: true`, and `coverage.truncated: false`. A timeout, a size rejection, or an exception must not include `flagged` or `injection_score`.

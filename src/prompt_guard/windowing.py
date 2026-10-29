@@ -20,6 +20,32 @@ def window_count(token_count: int, capacity: int, step: int) -> int:
     return math.ceil((token_count - capacity) / step) + 1
 
 
+def content_token_spans(token_count: int, *, capacity: int, overlap: int) -> list[tuple[int, int]]:
+    """Half-open content-token intervals, in scan order.
+
+    An empty token sequence is one empty interval. That interval is still a
+    window because the model receives the special-token wrapper.
+    """
+    if capacity < 1:
+        raise ValueError("content capacity must be positive")
+    if overlap < 0 or overlap >= capacity:
+        raise ValueError("overlap must be >= 0 and smaller than the content capacity")
+    if token_count < 0:
+        raise ValueError("token_count must be >= 0")
+    step = capacity - overlap
+    if token_count == 0:
+        return [(0, 0)]
+    spans: list[tuple[int, int]] = []
+    start = 0
+    while True:
+        end = min(start + capacity, token_count)
+        spans.append((start, end))
+        if end >= token_count:
+            break
+        start += step
+    return spans
+
+
 def plan_windows(
     content_ids: Sequence[int],
     *,
@@ -29,26 +55,12 @@ def plan_windows(
     suffix: Sequence[int],
 ) -> list[list[int]]:
     """Wrap every content token in at least one special-token window."""
-    if capacity < 1:
-        raise ValueError("content capacity must be positive")
-    if overlap < 0 or overlap >= capacity:
-        raise ValueError("overlap must be >= 0 and smaller than the content capacity")
-    step = capacity - overlap
     prefix_ids = list(prefix)
     suffix_ids = list(suffix)
     tokens = list(content_ids)
-    if not tokens:
-        return [prefix_ids + suffix_ids]
-
     windows: list[list[int]] = []
-    start = 0
-    total = len(tokens)
-    while True:
-        end = min(start + capacity, total)
+    for start, end in content_token_spans(len(tokens), capacity=capacity, overlap=overlap):
         windows.append(prefix_ids + tokens[start:end] + suffix_ids)
-        if end >= total:
-            break
-        start += step
     return windows
 
 

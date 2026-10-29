@@ -31,7 +31,7 @@ from prompt_guard.errors import (
     unauthorized,
 )
 from prompt_guard.runtime import load_scanner
-from prompt_guard.schemas import ScanRequest, ScanResponse
+from prompt_guard.schemas import ScanDiagnostics, ScanRequest, ScanResponse, WindowDiagnostic
 
 log = logging.getLogger(__name__)
 
@@ -86,7 +86,7 @@ def create_app(settings: Settings, engine: Engine | None = None) -> FastAPI:
         body["request_id"] = request.state.request_id
         return JSONResponse(body)
 
-    @app.post("/v1/scan", response_model=ScanResponse)
+    @app.post("/v1/scan", response_model=ScanResponse, response_model_exclude_none=True)
     async def scan(payload: ScanRequest, request: Request) -> ScanResponse:
         started = time.perf_counter()
         deadline = time.monotonic() + (settings.deadline_ms / 1000)
@@ -102,6 +102,7 @@ def create_app(settings: Settings, engine: Engine | None = None) -> FastAPI:
             raise not_ready()
         threshold = settings.default_threshold if payload.threshold is None else payload.threshold
         elapsed_ms = int((time.perf_counter() - started) * 1000)
+        diagnostics = _diagnostics(outcome) if payload.return_windows else None
         return ScanResponse(
             request_id=request.state.request_id,
             status="ok",
@@ -116,6 +117,7 @@ def create_app(settings: Settings, engine: Engine | None = None) -> FastAPI:
                 "windows_total": outcome.windows_total,
             },
             elapsed_ms=elapsed_ms,
+            diagnostics=diagnostics,
         )
 
     @app.exception_handler(ScanError)
@@ -227,6 +229,29 @@ class GuardMiddleware:
             await send(message)
 
         await self.app(scope, receive, send_with_id)
+
+
+def _diagnostics(outcome: object) -> ScanDiagnostics:
+    windows = [
+        WindowDiagnostic(
+            index=item.index,
+            content_token_start=item.content_token_start,
+            content_token_end=item.content_token_end,
+            char_start=item.char_start,
+            char_end=item.char_end,
+            injection_score=item.injection_score,
+        )
+        for item in outcome.windows  # type: ignore[attr-defined]
+    ]
+    return ScanDiagnostics(
+        version=1,
+        aggregation="max",
+        winning_window_index=outcome.winning_window_index,  # type: ignore[attr-defined]
+        offset_unit=outcome.offset_unit,  # type: ignore[attr-defined]
+        char_offset_reason=outcome.char_offset_reason,  # type: ignore[attr-defined]
+        representation="raw_text_v1",
+        windows=windows,
+    )
 
 
 def _request_id(request: Request) -> str:

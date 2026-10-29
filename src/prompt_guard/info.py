@@ -80,10 +80,20 @@ class LoadedInfo:
                 "context_limit": self.context_limit,
                 "onnx_intra_op_threads": self.onnx_intra_op_threads,
             },
+            "diagnostics": {
+                "request_field": "return_windows",
+                "default": False,
+                "version": 1,
+                "representation": "raw_text_v1",
+                "aggregation": AGGREGATION,
+                "tie_break": "lowest_index",
+                "offset_unit": "unicode_code_points",
+            },
             "caveats": [
                 "Scores are model estimates, not calibrated guarantees of safety.",
                 "flagged means injection_score >= threshold. The threshold is not an authorization policy.",
                 "A scan that is not flagged does not make the content trusted and does not authorize tool execution.",
                 "complete coverage means every input token was scored, not that every attack is detectable.",
+                "Window diagnostics locate the scored region. They do not explain which words caused the score.",
             ],
         }

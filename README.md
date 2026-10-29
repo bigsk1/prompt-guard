@@ -59,7 +59,9 @@ The host needs a matching NVIDIA driver and the NVIDIA Container Toolkit. The GP
 
 Health bodies are only `{"status":"live"}`, `{"status":"ready"}`, or `{"status":"not_ready"}`.
 
-`POST /v1/scan` takes `text`, an optional `threshold` from 0 to 1, and an optional `source` object. `source` is descriptive metadata. It does not change the score, the limits, or access. The request cannot select a model, and the service will not fetch a URL or read a file path.
+`POST /v1/scan` takes `text`, an optional `threshold` from 0 to 1, an optional `source` object, and an optional `return_windows` boolean. `source` is descriptive metadata. It does not change the score, the limits, or access. The request cannot select a model, and the service will not fetch a URL or read a file path.
+
+`return_windows` defaults to false and does not change the verdict. Set it to true to get each window's score, the winning window, and token intervals from that same inference pass. Character intervals are Unicode code points in the submitted text when the tokenizer provides a mapping that fits the text. A window score locates a region. It does not identify which words caused the score, and the response does not include the text.
 
 `injection_score` is the highest INJECTION-class probability across overlapping token windows. `flagged` is `injection_score >= threshold`. If `threshold` is omitted, the server default is 0.5. Long text is split into windows on the server. Text past the configured byte, token, or window limits is rejected with 413 rather than cut down and treated as fully scanned.
 
