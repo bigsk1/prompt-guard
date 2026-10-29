@@ -4,7 +4,7 @@ This file is for a later coding agent. Read it before changing the scanner, the 
 
 ## What this is
 
-`prompt-guard` is a single-process FastAPI service. It loads [Horizon-Labs/prompt-injection-guard-base](https://huggingface.co/Horizon-Labs/prompt-injection-guard-base) once and scores text sent by other tools on a private network. Callers such as Jarvis apply their own allow or block policy. This service must not grow a policy engine.
+`prompt-guard` is a single-process FastAPI service. It loads [Horizon-Labs/prompt-injection-guard-base](https://huggingface.co/Horizon-Labs/prompt-injection-guard-base) once and scores text sent by other programs. The caller applies its own allow or block policy. This service must not grow a policy engine.
 
 The code in this repository is MIT. The checkpoint is Apache-2.0 and is downloaded, not committed.
 
