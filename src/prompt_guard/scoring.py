@@ -15,12 +15,18 @@ def softmax(logits: np.ndarray) -> np.ndarray:
     return exp / np.sum(exp, axis=-1, keepdims=True)
 
 
-def injection_score(logits: np.ndarray, injection_index: int) -> float:
-    """Maximum INJECTION-class softmax probability across the batch."""
+def injection_scores(logits: np.ndarray, injection_index: int) -> list[float]:
+    """INJECTION-class softmax probability for each row, in batch order."""
     probabilities = softmax(logits)
     if injection_index < 0 or injection_index >= probabilities.shape[1]:
         raise ValueError("injection index is outside the label dimension")
-    score = float(np.max(probabilities[:, injection_index]))
-    if not math.isfinite(score):
-        raise ValueError("model returned a non-finite score")
-    return score
+    scores = [float(value) for value in probabilities[:, injection_index]]
+    for score in scores:
+        if not math.isfinite(score) or score < 0.0 or score > 1.0:
+            raise ValueError("model returned a score outside the unit interval")
+    return scores
+
+
+def injection_score(logits: np.ndarray, injection_index: int) -> float:
+    """Maximum INJECTION-class softmax probability across the batch."""
+    return max(injection_scores(logits, injection_index))

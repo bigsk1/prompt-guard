@@ -1,0 +1,302 @@
+[](https://status.x.ai/)
+Toggle theme
+Time UTC
+# History
+Updated Oct 29, 10:18 AM UTC
+Subscribe
+All systems
+Subscribe
+No active incidentsWe are not aware of any posted incidents impacting our services.
+## Past
+### Oct 29, 2026
+  * Degraded performance — Origin and Cloud Agents17m · Automations, BugBot, Cloud Agents, Grok Bot, Origin, Review Agents
+Degraded
+
+
+### Oct 28, 2026
+  * Multiple services degraded1h 58m · Automations, BugBot, Cloud Agents, Grok Bot, Origin
+Degraded
+
+
+### Oct 27, 2026
+  * Delayed responses in Grok Bot10m · Grok Bot
+Degraded
+  * Elevated errors affecting repository integrations46m · Automations, BugBot, Cloud Agents, Origin, Review Agents
+  * Payment System Sync Issues5m · cursor.com
+Degraded
+
+
+### Oct 26, 2026
+  * Degraded agent personalization and codebase sync3h 17m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop)
+Degraded
+  * Elevated errors for Claude Sonnet 5.51h 24m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Oct 24, 2026
+  * Degraded Model Performance1m · Global (api.x.ai), CLI
+Degraded
+
+
+### Oct 23, 2026
+  * Investigating service outage - Grok models unavailable41m · Automations, Cloud Agents, CLI, cursor.com, Cursor IDE (Desktop), Cursor IDE (iOS), Grok Bot
+Degraded
+
+
+### Oct 21, 2026
+  * Elevated errors for Bitbucket Cloud integrations13m · Cloud Agents, Review Agents
+Degraded
+  * Investigating service degradation1h 54m · cursor.com, Grok Bot
+Degraded
+  * Investigating service degradationCloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Oct 19, 2026
+  * Investigating service degradation — Grok Bot19m · Grok Bot
+Degraded
+  * Investigating service degradation — Grok Bot1h 07m · Grok Bot
+Degraded
+  * Investigating service degradation27m · Cloud Agents, CLI, cursor.com, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Oct 15, 2026
+  * Elevated errors affecting Grok models6h 56m · Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Oct 14, 2026
+  * Investigating service degradation — Grok Bot5h 18m · Grok Bot
+Degraded
+
+
+### Oct 13, 2026
+  * Grok Bot routines not triggeringGrok Bot
+Degraded
+  * Degraded performance and errors across Cursor services2h 46m · Automations, Cloud Agents, CLI, cursor.com, Cursor IDE (Desktop), Cursor IDE (iOS), Grok Bot, Origin, Review Agents
+Degraded
+
+
+### Oct 09, 2026
+  * Investigating service degradation — Cloud Agents and Grok Bot31m · Cloud Agents, Grok Bot
+Degraded
+  * Investigating service degradation — Cloud Agents12m · Cloud Agents
+Degraded
+
+
+### Oct 08, 2026
+  * Elevated errors affecting Opus 5.558m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS), Grok Bot
+Degraded
+  * Opus 5.5 is Experiencing 429s1h 37m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS), Grok Bot, Review Agents
+Degraded
+
+
+### Oct 07, 2026
+  * Investigating service degradation — Grok Bot1h 26m · Grok Bot
+Degraded
+  * grok.com6m · grok.com
+Outage
+
+
+### Oct 06, 2026
+  * Investigating service degradation — Cloud Agents17m · Cloud Agents, Grok Bot
+Degraded
+  * Investigating service degradation — Cloud Agents and Grok Bot2h 39m · Cloud Agents, Grok Bot
+Degraded
+  * Enterprise Voice Degraded28m · Voice
+Degraded
+  * Investigating service degradation — Security Reviewer Agents1h 07m · Review Agents
+Degraded
+  * Elevated errors affecting Anthropic models3h 20m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Oct 03, 2026
+  * Investigating service degradation — Grok Bot and Review Agents36m · Grok Bot, Review Agents
+Degraded
+
+
+### Sep 29, 2026
+  * Investigating service degradation - xAI models35m · Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS), Grok Bot
+Degraded
+  * Investigating service degradation — Cloud Agents and Grok Bot3h 41m · Cloud Agents, Grok Bot
+Degraded
+
+
+### Sep 28, 2026
+  * Investigating service degradation — Grok Bot13m · Grok Bot
+Degraded
+
+
+### Sep 25, 2026
+  * Investigating service degradation — Grok Bot45m · Grok Bot
+Degraded
+  * Investigating service degradation — Grok Bot1h 34m · Grok Bot
+Degraded
+
+
+### Sep 23, 2026
+  * Investigating service degradation - Grok 4.79m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+  * Investigating — Cloud Agent Dockerfile Builds1h 29m · Cloud Agents
+Degraded
+
+
+### Sep 22, 2026
+  * Investigating service degradation — Automations and Cloud Agents w/ Grok 4.744m · Automations, Cloud Agents
+Degraded
+  * Investigating service degradation36m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+  * Outages across API, Grok.com, and Grok Build26m · Global (api.x.ai), US (us.api.x.ai), Grok (Build), grok.com
+Outage
+
+
+### Sep 21, 2026
+  * Investigating service degradation22m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Sep 18, 2026
+  * Sign-in and dashboard errors for some users11m · cursor.com
+Degraded
+  * Investigating service degradation — Grok Bot5h 43m · Grok Bot
+Degraded
+  * Investigating service degradation — Grok Bot2h 56m · Grok Bot
+Degraded
+
+
+### Sep 17, 2026
+  * Investigating service degradation — Cloud Agents and Automations4h 44m · Automations, Cloud Agents, Grok Bot, Review Agents
+Degraded
+  * Investigating service degradation — Grok Bot2h 04m · Grok Bot
+Degraded
+
+
+### Sep 16, 2026
+  * Investigating service degradation — Grok Bot6h 30m · Grok Bot
+Degraded
+  * Investigating service degradation40m · CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Sep 15, 2026
+  * Investigating service degradation33m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS), Grok Bot, Origin, Review Agents
+Degraded
+
+
+### Sep 14, 2026
+  * Investigating Grok service degradation53m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Sep 11, 2026
+  * Investigating service degradation27m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Sep 10, 2026
+  * Investigating service degradation — Review Agents and Cloud Agents25m · Cloud Agents, Review Agents
+Degraded
+  * Enterprise Voice Degraded12m · Global (api.x.ai), US (us.api.x.ai), Voice
+Degraded
+
+
+### Sep 07, 2026
+  * Grok Bot computers unreachable for some users1h 05m · Grok Bot
+Degraded
+  * Investigating service degradation — CLI, Cloud Agents, and IDECloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Sep 03, 2026
+  * Degraded performance for Grok Bot routine triggers1h 00m · Grok Bot
+Degraded
+  * Degraded performance of Grok 4.61h 39m · Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS), Grok Bot
+Degraded
+  * Elevated errors for OpenAI Models1h 48m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+  * Elevated errors for Anthropic Models2h 15m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+  * Investigating service degradation3h 26m · Automations, Cloud Agents, Cursor IDE (Desktop), Cursor IDE (iOS), Grok Bot, Review Agents
+Outage
+  * Models outage3h 39m · Grok (Android), Global (api.x.ai), US (us.api.x.ai), Grok (Build), grok.com, Grok in X, Grok (iOS), Grok (Office/Workspace Plugins)
+Outage
+
+
+### Sep 02, 2026
+  * Investigating service degradation — Automations, Cloud Agents, Review Agents1h 20m · Automations, Cloud Agents, Review Agents
+Degraded
+  * Investigating service degradation2h 19m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Sep 01, 2026
+  * Degraded performance of Grok 4.51h 58m · Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS), Grok Bot
+Degraded
+  * Investigating service degradation13m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Aug 27, 2026
+  * Investigating service degradation — cursor.com and IDE7m · cursor.com, Cursor IDE (Desktop), Cursor IDE (iOS)
+Outage
+  * Investigating service degradation — Grok Bot42m · Grok Bot
+Degraded
+
+
+### Aug 25, 2026
+  * Degraded performance of Grok models54m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+  * Degraded performance of Grok 4.62h 43m · Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS), Grok Bot
+Degraded
+
+
+### Aug 24, 2026
+  * Investigating service degradation — Automations29m · Automations
+Degraded
+  * Elevated errors for Claude Opus 53h 12m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Aug 21, 2026
+  * Investigating service degradation47m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Aug 19, 2026
+  * Fable 5 unavailable2h 41m · Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+  * Increased error rates for Composer 2.53h 02m · Automations, Cloud Agents, CLI, cursor.com, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Aug 18, 2026
+  * GitHub-connected Cloud Agent workflows degraded6h 56m · Automations, Cloud Agents
+Degraded
+  * Grok Bot connector delays1h 29m · Grok Bot
+Degraded
+  * Investigating service degradation1h 08m · cursor.com
+Degraded
+  * Investigating service degradation1h 07m · Automations, Cloud Agents, CLI, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Aug 17, 2026
+  * grok-4.6 and grok-4.5 high error rate1h 31m · Global (api.x.ai), US (us.api.x.ai)
+Degraded
+  * Grok 4.6 availability issues1h 07m · Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+  * GitHub degradation affecting some Cursor services — Automations, Cloud Agents, Codebase6h 06m · Automations, Cloud Agents, Origin, Review Agents
+Degraded
+  * Investigating service degradation4h 08m · Automations, Cloud Agents, CLI, cursor.com, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Aug 13, 2026
+  * Investigating service degradation — Automations, Cloud Agents, and IDE4h 04m · Automations, Cloud Agents, Cursor IDE (Desktop), Cursor IDE (iOS)
+Degraded
+
+
+### Aug 12, 2026
+  * Investigating service degradation21m · Automations, Cloud Agents, CLI, Cursor I

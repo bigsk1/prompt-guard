@@ -37,6 +37,14 @@ class ScanRequest(BaseModel):
     text: str = Field(min_length=1)
     threshold: float | None = None
     source: Source | None = None
+    return_windows: bool = False
+
+    @field_validator("return_windows", mode="before")
+    @classmethod
+    def reject_non_boolean_windows_flag(cls, value: object) -> object:
+        if not isinstance(value, bool):
+            raise ValueError("return_windows must be a boolean")
+        return value
 
     @field_validator("threshold", mode="before")
     @classmethod
@@ -70,6 +78,25 @@ class Coverage(BaseModel):
     windows_total: int
 
 
+class WindowDiagnostic(BaseModel):
+    index: int
+    content_token_start: int
+    content_token_end: int
+    char_start: int | None = None
+    char_end: int | None = None
+    injection_score: float
+
+
+class ScanDiagnostics(BaseModel):
+    version: Literal[1]
+    aggregation: Literal["max"]
+    winning_window_index: int
+    offset_unit: Literal["unicode_code_points"] | None
+    char_offset_reason: str | None = None
+    representation: Literal["raw_text_v1"]
+    windows: list[WindowDiagnostic]
+
+
 class ScanResponse(BaseModel):
     request_id: str
     status: Literal["ok"]
@@ -79,6 +106,7 @@ class ScanResponse(BaseModel):
     model: ModelRef
     coverage: Coverage
     elapsed_ms: int
+    diagnostics: ScanDiagnostics | None = None
 
 
 class ErrorBody(BaseModel):
