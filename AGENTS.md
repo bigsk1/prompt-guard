@@ -94,6 +94,7 @@ Codes: `unauthorized`, `invalid_request`, `request_too_large`, `input_too_long`,
 - Root filesystem is read-only. Model files go to `/models`. `HOME` and scratch go to the `/tmp` tmpfs.
 - Compose health checks `/health/live` so a first-time download is not killed. Callers should wait on `/health/ready`.
 - Do not bake the weights into the image. Startup pull plus the volume is the cache.
+- Do not `pip install` the project directly from a BuildKit bind mount. Those mounts are read-only, and setuptools needs to write `egg-info`. Copy the mounted tree to a writable directory first, as the Dockerfile does.
 
 ## Tests
 

@@ -17,12 +17,16 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-RUN python -m venv /opt/venv
+RUN python -m venv /opt/venv && mkdir -p /tmp/pkg-src
 
-RUN --mount=type=bind,source=pyproject.toml,target=/tmp/app/pyproject.toml \
-    --mount=type=bind,source=src,target=/tmp/app/src \
+# Bind mounts are read-only. setuptools writes egg-info into the source tree,
+# so copy the project to a writable directory before installing it.
+RUN --mount=type=bind,source=pyproject.toml,target=/tmp/pkg-src/pyproject.toml \
+    --mount=type=bind,source=src,target=/tmp/pkg-src/src \
     --mount=type=cache,target=/root/.cache/pip \
-    pip install --no-compile /tmp/app
+    cp -a /tmp/pkg-src /tmp/pkg \
+    && pip install --no-compile /tmp/pkg \
+    && rm -rf /tmp/pkg
 
 RUN groupadd --system --gid 1001 appgroup \
     && useradd --system --uid 1001 --gid 1001 --home-dir /tmp --no-create-home appuser \
@@ -60,12 +64,17 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update \
     && apt-get install -y --no-install-recommends python3 python3-venv python3-pip ca-certificates \
-    && python3 -m venv /opt/venv
+    && python3 -m venv /opt/venv \
+    && mkdir -p /tmp/pkg-src
 
-RUN --mount=type=bind,source=pyproject.toml,target=/tmp/app/pyproject.toml \
-    --mount=type=bind,source=src,target=/tmp/app/src \
+# Bind mounts are read-only. setuptools writes egg-info into the source tree,
+# so copy the project to a writable directory before installing it.
+RUN --mount=type=bind,source=pyproject.toml,target=/tmp/pkg-src/pyproject.toml \
+    --mount=type=bind,source=src,target=/tmp/pkg-src/src \
     --mount=type=cache,target=/root/.cache/pip \
-    pip install --no-compile /tmp/app
+    cp -a /tmp/pkg-src /tmp/pkg \
+    && pip install --no-compile /tmp/pkg \
+    && rm -rf /tmp/pkg
 
 # Install CUDA torch after the app so this step cannot be replaced by a CPU wheel.
 # cu128 wheels include the sm_120 kernels required by the RTX 5060 Ti.
